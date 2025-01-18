@@ -1,0 +1,43 @@
+﻿<Page x:Class="Baiko_PrivateAds.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Baiko_PrivateAds.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Авторизация">
+
+    <Grid>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="91*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="137*"/>
+                <ColumnDefinition Width="138"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="128"/>
+                <ColumnDefinition Width="157*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Логин" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+
+            <TextBlock Text="Логин или почта" Foreground="Gray" Name="txtHintLogin"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="TBoxLogin" TextChanged="TBoxLogin_TextChanged" ToolTip="Введите логин" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" VerticalAlignment="Center" Height="40"/>
+
+            <TextBlock Text="Пароль" Foreground="Gray" Name="txtHintPassword" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+            <PasswordBox x:Name="TBoxPassword" PasswordChanged="TBoxPassword_PasswordChanged" ToolTip="Введите пароль" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Background="Transparent" VerticalAlignment="Center" Height="40"/>
+
+            <Label Content="Пароль" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+            <Button Content="Вход" Grid.Column="2" Grid.Row="5" ToolTip="Нажмите, чтобы войти" Click="ButtonEnter_OnClick"/>
+            <Button Content="Регистрация" Grid.Column="2" Grid.Row="6" ToolTip="Нажмите, чтобы зарегистрироваться" Click="ButtonReg_Click"/>
+        </Grid>
+    </Grid>
+</Page>
