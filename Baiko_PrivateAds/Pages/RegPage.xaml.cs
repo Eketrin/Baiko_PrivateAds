@@ -98,7 +98,8 @@ namespace Baiko_PrivateAds.Pages
             {
                 if (TBoxPassword.Password[i] >= 'А' && TBoxPassword.Password[i] <= 'Я') onlyEnglish = false; // если русская раскладка
                 if (TBoxPassword.Password[i] >= '0' && TBoxPassword.Password[i] <= '9') number = true; // если цифра
-                if ((TBoxPassword.Password[i] >= 'A' && TBoxPassword.Password[i] <= 'Z') || (TBoxPassword.Password[i] >= 'a' && TBoxPassword.Password[i] <= 'z')) en = true; // если английская буква  			
+                if ((TBoxPassword.Password[i] >= 'A' && TBoxPassword.Password[i] <= 'Z') 
+                    || (TBoxPassword.Password[i] >= 'a' && TBoxPassword.Password[i] <= 'z')) en = true; // если английская буква  			
             }
             if (!onlyEnglish) // если найдены русские буквы
             {
@@ -115,13 +116,7 @@ namespace Baiko_PrivateAds.Pages
                 MessageBox.Show("Добавьте хотя бы одну цифру"); // выводим сообщение
                 return;
             }
-            /*
-			if (en && number)
-			{
-				MessageBox.Show("Пароль должен содержать анлийские буквы и цифры"); // выводим сообщение
-				return;
-			}
-            */
+
             if (TBoxPassword.Password != TBoxPasswordRepeat.Password) // проверка на совпадение
             {
                 MessageBox.Show("Пароли не совпадают!");
@@ -130,9 +125,9 @@ namespace Baiko_PrivateAds.Pages
             Entities db = new Entities();
             Users userObject = new Users
             {
-               // FIO = TBoxName.Text,
+                Nickname = TBoxName.Text,
                 Login = TBoxLogin.Text,
-                Password = GetHash(TBoxPassword.Password),
+                Password = TBoxPassword.Password,
            
             };
             db.Users.Add(userObject);
@@ -140,14 +135,7 @@ namespace Baiko_PrivateAds.Pages
             MessageBox.Show("Пользователь зарегистрирован!");
         
         }
-
-        public static string GetHash(string password)
-        {
-            using (var hash = SHA1.Create())
-            {
-                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
-            }
-        } 
+ 
     }
     public class Role
     {

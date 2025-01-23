@@ -14,6 +14,7 @@ namespace Baiko_PrivateAds
     
     public partial class Posts
     {
+        public string Unit => $"{Type + "." + Category}";
         public int ID_post { get; set; }
         public Nullable<int> ID_user { get; set; }
         public Nullable<System.DateTime> Date_public { get; set; }

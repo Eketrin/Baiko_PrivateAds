@@ -49,13 +49,12 @@ namespace Baiko_PrivateAds.Pages
                 MessageBox.Show("Введите логин и пароль!");
                 return;
             }
-            /*
+            
             using (var db = new Entities())
             {
-                var hashedPassword = RegPage.GetHash(TBoxPassword.Password);
-                var user = db.User
+                var user = db.Users
                     .AsNoTracking()
-                    .FirstOrDefault(u => u.Login == TBoxLogin.Text && u.Password == hashedPassword);
+                    .FirstOrDefault(u => u.Login == TBoxLogin.Text && u.Password == TBoxPassword.Password);
                 if (user == null)
                 {
                     MessageBox.Show("Пользователь с такими данными не найден!");
@@ -63,16 +62,19 @@ namespace Baiko_PrivateAds.Pages
                 }
                 MessageBox.Show("Пользователь успешно найден!");
 
-                switch (user.Role)
+                switch (user.ID_role)
                 {
-                    case "Пользователь":
-                        NavigationService?.Navigate(new UserPage());
-                        break;
-                    case "Администратор":
+                    case 1:     // "Администратор":
                         NavigationService?.Navigate(new AdminPage());
                         break;
+                    case 2:     //"Пользователь":
+                        NavigationService?.Navigate(new UserPage());
+                        break;
+                    case 3:     // "Модератор":
+                        NavigationService?.Navigate(new ModPage());
+                        break;
                 }
-            }*/
+            }
         }
         private void ButtonReg_Click(object sender, RoutedEventArgs e)
         {

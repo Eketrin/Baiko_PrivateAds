@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Baiko_PrivateAds"
         mc:Ignorable="d"
-        Title="MainWindow" Height="475" Width="815" Closing="MainWindow_Closing" Background="White">
+        Title="MainWindow" Height="475" Width="1000" Closing="MainWindow_Closing" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="45"></RowDefinition>

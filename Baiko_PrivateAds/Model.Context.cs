@@ -17,7 +17,7 @@ namespace Baiko_PrivateAds
     {
         private static Entities _context;
         public Entities()
-        : base("name=Entities")
+            : base("name=Entities")
         {
         }
 
@@ -27,7 +27,11 @@ namespace Baiko_PrivateAds
                 _context = new Entities();
             return _context;
         }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public virtual DbSet<Posts> Posts { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Statuses> Statuses { get; set; }
