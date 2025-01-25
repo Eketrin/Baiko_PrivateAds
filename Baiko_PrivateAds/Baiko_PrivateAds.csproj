@@ -85,6 +85,9 @@
     <Compile Include="Pages\ModPage.xaml.cs">
       <DependentUpon>ModPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PostDetailPage.xaml.cs">
+      <DependentUpon>PostDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Posts.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ModPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PostDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

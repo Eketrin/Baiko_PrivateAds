@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Baiko_PrivateAds.Pages
 {
@@ -40,6 +41,15 @@ namespace Baiko_PrivateAds.Pages
                 ListUser.ItemsSource = currentUsers.OrderBy(x => x.Name_post).ToList();
             else
                 ListUser.ItemsSource = currentUsers.OrderByDescending(x => x.Name_post).ToList();
+        }
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (ListUser.SelectedItem != null && ListUser.SelectedItem is Posts selectedPost)
+            {
+                NavigationService?.Navigate(new Pages.PostDetailPage(selectedPost));
+                //NavigationService.Navigate(new Pages.AddUserPage((sender as Button).DataContext as Users));
+
+            }
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
