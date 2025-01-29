@@ -75,6 +75,7 @@ namespace Baiko_PrivateAds.Pages
 
             using (var pr = new Entities())
             {
+
                 var user = pr.Users
                     .AsNoTracking()
                     .FirstOrDefault(u => u.Login == TBoxLogin.Text);
@@ -128,6 +129,8 @@ namespace Baiko_PrivateAds.Pages
                 Nickname = TBoxName.Text,
                 Login = TBoxLogin.Text,
                 Password = TBoxPassword.Password,
+                ID_role = 2, 
+                Profit = 0
            
             };
             db.Users.Add(userObject);

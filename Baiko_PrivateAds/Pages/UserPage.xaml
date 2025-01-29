@@ -7,7 +7,7 @@
       
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserPage">
+      Title="Галерея предложений">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -20,14 +20,15 @@
                 <ComboBoxItem Content="По возрастанию" />
                 <ComboBoxItem Content="По убыванию" />
             </ComboBox>
-            <ComboBox Width="200" Margin="5" ToolTip="Выберите категорию" x:Name="SortCategoryComboBox" SelectionChanged="SortCategoryComboBox_SelectionChanged">
-                <ComboBoxItem Content="По возрастанию" />
-                <ComboBoxItem Content="По убыванию" />
-            </ComboBox>
-            <CheckBox Content="Только мои посты" Margin="5" ToolTip="Фильтрация по роли 'Пользователь'" x:Name="RoleCheckBox" Checked="RoleCheckBox_Checked" Unchecked="RoleCheckBox_Unchecked"/>
+            <CheckBox Content="Только мои посты" Margin="5" ToolTip="Фильтрация по моим постам" x:Name="RoleCheckBox" Checked="RoleCheckBox_Checked" Unchecked="RoleCheckBox_Unchecked"/>
             <Button Content="Очистить фильтр" Width="150" Margin="5" ToolTip="Сбросить все фильтры" x:Name="ClearFilterButton" Click="ClearFilterButton_Click"/>
-            <Button Content="Добавить товар" Width="150" Margin="5" ToolTip="Добавить новый товар" x:Name="AddButton" Click="AddButton_Click" />
-
+            <Button Visibility="Hidden" Content="Добавить товар" Width="150" Margin="5" ToolTip="Добавить новый товар" x:Name="AddButton" Click="AddButton_Click" />
+            <Button Visibility="Hidden" Content="Удалить товар" Width="150" Margin="5" ToolTip="Удалить выбранный товар" x:Name="DelButton" Click="DelButton_Click"  />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Общая выручка:"/>
+                <TextBlock x:Name="prof"/>
+                <TextBlock Text="Р"/>
+            </StackPanel>
         </WrapPanel>
         <ListView Name="ListUser" Grid.Row="1" 
                   MouseDoubleClick="DataGrid_MouseDoubleClick"

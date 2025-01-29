@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Baiko_PrivateAds.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddUserPage">
+      Title="Добавление и редактирование пользователей">
 
     <Grid>
         <Grid Background="White">

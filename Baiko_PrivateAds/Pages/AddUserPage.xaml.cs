@@ -30,8 +30,8 @@ namespace Baiko_PrivateAds.Pages
             {
                 _currentUser = selectedUser;
                 cmbRole.SelectedIndex = (int)_currentUser.ID_role-1;
-                
             }
+            else { cmbRole.SelectedIndex = 1; }
             DataContext = _currentUser;
         }
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace Baiko_PrivateAds.Pages
             if (string.IsNullOrWhiteSpace(_currentUser.Login)) errors.AppendLine("Укажите логин!");
             if (string.IsNullOrWhiteSpace(_currentUser.Password)) errors.AppendLine("Укажите пароль!");
             if (string.IsNullOrWhiteSpace(_currentUser.Nickname)) errors.AppendLine("Укажите никнейм!");
-            if ((_currentUser.ID_role == null) || (cmbRole.Text == "")) errors.AppendLine("Выберите роль!");
+            if ( (cmbRole.Text == "")) errors.AppendLine("Выберите роль!"); //(_currentUser.ID_role == null)
             else _currentUser.ID_role = cmbRole.SelectedIndex+1;
             // Проверяем переменную errors на наличие ошибок
             if (errors.Length > 0)

@@ -5,47 +5,74 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Baiko_PrivateAds.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PostDetailPage">
+      d:DesignHeight="450" d:DesignWidth="900"
+      Title="Карточка товара">
 
-    <Grid>
-        <Grid Background="White">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="40*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="243*"/>
-                <ColumnDefinition Width="72"/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="81*"/>
-                <ColumnDefinition Width="70*"/>
-            </Grid.ColumnDefinitions>
 
-            <TextBlock TextAlignment="Left" Width="312" TextWrapping="Wrap" Text="{Binding Unit}" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Height="44" Grid.ColumnSpan="2" Margin="2,0,0,0" Grid.Column="1" Grid.Row="1"/>
-            <TextBlock TextAlignment="Left" Grid.Column="3" Grid.Row="1" FontSize="18" Text="{Binding Date_public}" Height="44" />
-            <TextBlock TextAlignment="Left"  Grid.Row="2" Grid.Column="3"  FontSize="18" Text="{Binding Name_post}" Height="44" />
-            <TextBlock TextAlignment="Left"  Grid.Row="3" Grid.Column="3"  FontSize="18" Text="{Binding City}" Height="44" />
-            <TextBlock TextAlignment="Left"  Grid.Row="4" Grid.Column="3"  FontSize="18" Text="{Binding Cost}" Height="44"/>
+    <Grid Name="DataGrid" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="42"/>
+            <RowDefinition Height="46"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="269*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="99"/>
+            <ColumnDefinition Width="254"/>
+            <ColumnDefinition Width="154*"/>
+            <ColumnDefinition Width="32*"/>
+        </Grid.ColumnDefinitions>
 
-            <TextBlock TextAlignment="Left"  Grid.Row="5" Grid.Column="2"  FontSize="18" Text="{Binding Description}" Height="176" TextWrapping="Wrap" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="72,0,0,0" VerticalAlignment="Top"   />
-            <Image   Grid.RowSpan="5" Grid.Row="2" Grid.Column="1">
-                <Image.Source>
-                    <Binding Path="Photo">
-                        <Binding.TargetNullValue>
-                            <ImageSource>C:\Users\Alfa\source\repos\Baiko_PrivateAds\Baiko_PrivateAds\Recources\DefaultPhoto.png</ImageSource>
-                        </Binding.TargetNullValue>
-                    </Binding>
-                </Image.Source>
-            </Image>
-        </Grid>
+        <WrapPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" >
+                <TextBlock Text="Категория"  TextAlignment="Left" Height="17" />
+                <TextBox Name="box7" IsReadOnly="True" TextAlignment="Left" Width="176" TextWrapping="Wrap" Text="{Binding Category}" ToolTip="Категория товара" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold"  Grid.ColumnSpan="2"  />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <TextBlock Text="Тип товара"  TextAlignment="Left" Height="17" />
+                <TextBox Name="box8" IsReadOnly="True" TextAlignment="Left" Width="170" TextWrapping="Wrap" Text="{Binding Type}" ToolTip="Тип товара" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold"  Grid.ColumnSpan="2" />
+            </StackPanel>
+
+        </WrapPanel>
+        <Button Visibility="Hidden" Name="SoldBut"  Grid.Row="1" Grid.Column="5" Content="Закрыть пост" ToolTip="нажмите чтобы закрыть объявление" Click="SoldBut_Click"  />
+        <Button Visibility="Hidden" Name="SaveBut"  Grid.Row="2" Grid.Column="5" Content="Сохранить изменения" ToolTip="Сохранить изменения" Click="SaveButton_Click"  />
+        <Button Visibility="Hidden" Name="AddBut"  Grid.Row="2" Grid.Column="5" Content="Сохранить" ToolTip="Сохранить новый пост" Click="SaveButton_Click"  />
+
+        <TextBox Text="{Binding Statuses.Name}" Grid.Row="1" IsReadOnly="True" Name="boxStatus" Grid.Column="4"  FontSize="18"  ToolTip="Статус товара" Height="NaN"/>
+        <TextBox Name="box1" IsReadOnly="True" TextAlignment="Left" Grid.Column="4" Grid.Row="2" FontSize="18" Text="{Binding Date_public}" ToolTip="Дата публикации" Height="NaN" />
+        <TextBox Name="box2" IsReadOnly="True" TextAlignment="Left"  Grid.Row="3" Grid.Column="4"  FontSize="18" Text="{Binding Name_post}" ToolTip="Название поста" Height="NaN" />
+        <TextBox Name="box3" IsReadOnly="True" TextAlignment="Left"  Grid.Row="4" Grid.Column="4"  FontSize="18" Text="{Binding City}" ToolTip="Город" Height="NaN" />
+        <TextBox Name="box4" IsReadOnly="True" TextAlignment="Left"  Grid.Row="5" Grid.Column="4"  FontSize="18" Text="{Binding Cost}" ToolTip="Цена" Height="NaN"/>
+        <TextBox Name="box5" IsReadOnly="True" TextAlignment="Left"  Grid.Row="6" Grid.Column="4"  FontSize="18" Text="{Binding Description}" ToolTip="Описание товара" Height="NaN" TextWrapping="Wrap" Grid.RowSpan="2" Grid.ColumnSpan="2"    />
+        <WrapPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" >
+            <TextBlock Text="Фото:" TextAlignment="Left" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox Name="box6" IsReadOnly="True" TextAlignment="Left" FontSize="18" Text="{Binding Photo}" ToolTip="Путь к фото" TextWrapping="Wrap" Width="288" Height="71"  />
+        </WrapPanel>
+        <!--текстовые подсказки-->
+        <TextBlock x:Name="stat" Text="Статус" Grid.Column="3" Grid.Row="1" TextAlignment="Center" Height="18" />
+        <TextBlock Text="Дата" Grid.Column="3" Grid.Row="2" TextAlignment="Center" Height="18" />
+        <TextBlock Text="Название" Grid.Column="3" Grid.Row="3" TextAlignment="Center" Height="18" />
+        <TextBlock Text="Город" Grid.Column="3" Grid.Row="4" TextAlignment="Center" Height="18" />
+        <TextBlock Text="Цена" Grid.Column="3" Grid.Row="5" TextAlignment="Center" Height="18" />
+        <TextBlock Text="Описание" Grid.Column="3" Grid.Row="6" TextAlignment="Center" Height="18" />
+
+
+        <Image  Grid.RowSpan="6" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Margin="0,26,0,23">
+            <Image.Source>
+                <Binding Path="Photo">
+                    <Binding.TargetNullValue>
+                        <ImageSource>C:\Users\Alfa\source\repos\Baiko_PrivateAds\Baiko_PrivateAds\Recources\DefaultPhoto.png</ImageSource>
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
     </Grid>
 </Page>
