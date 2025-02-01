@@ -122,8 +122,5 @@ namespace Baiko_PrivateAds.Pages
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-
-
-
     }
 }

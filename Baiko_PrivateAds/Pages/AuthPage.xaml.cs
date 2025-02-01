@@ -70,9 +70,7 @@ namespace Baiko_PrivateAds.Pages
                     case 2:     //"Пользователь":
                         NavigationService?.Navigate(new UserPage(user.ID_user));
                         break;
-                    case 3:     // "Модератор":
-                        NavigationService?.Navigate(new ModPage());
-                        break;
+                    
                 }
             }
         }

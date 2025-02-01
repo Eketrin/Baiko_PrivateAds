@@ -34,7 +34,6 @@ namespace Baiko_PrivateAds.Pages
             ListUser.ItemsSource = currentPosts;
             userData = userdata;
             UpdatePosts();
-
         }
 
         private void UpdatePosts()
@@ -56,9 +55,6 @@ namespace Baiko_PrivateAds.Pages
                         .Select(x => (int)x.Profit)
                         .FirstOrDefault();
             prof.Text = profit.ToString();
-
-
-
         }
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -69,7 +65,6 @@ namespace Baiko_PrivateAds.Pages
                     NavigationService?.Navigate(new Pages.PostDetailPage(selectedPost, userData, false));
                 }
                 else NavigationService?.Navigate(new Pages.PostDetailPage(selectedPost, -1, false));
-
             }
         }
 
@@ -95,10 +90,6 @@ namespace Baiko_PrivateAds.Pages
         {
             UpdatePosts();
         }
-
-
-
-
         private void ClearFilterButton_Click(object sender, RoutedEventArgs e)
         {
             SearchTextBox.Text = string.Empty;
